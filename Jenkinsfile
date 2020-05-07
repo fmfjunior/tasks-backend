@@ -1,9 +1,9 @@
 pipeline {
     agent any 
     tools {
-        jdk 'jdk9'
+        jdk 'jdk11'
         maven 'maven3'
-        sonar_scanner 'sonar_scanner'
+        sonar 'sonar_scanner'
     }
     stages {
       stage ( 'construindo' ) {
@@ -29,3 +29,4 @@ pipeline {
         }
     }
 }
+
