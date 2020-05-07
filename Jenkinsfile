@@ -1,9 +1,10 @@
+
 pipeline {
     agent any 
     tools {
         jdk 'jdk11'
         maven 'maven3'
-        sonar 'sonar_scanner'
+        
     }
     stages {
       stage ( 'construindo' ) {
@@ -19,7 +20,9 @@ pipeline {
               }
           }
       stage( 'teste estatio scanner sonar') {
-                
+                environment {
+                    scannerHome = tool 'sonar_scanner'
+                }
                 steps{
                     withSonarQubeEnv('sonar'){
                    
@@ -29,4 +32,3 @@ pipeline {
         }
     }
 }
-
