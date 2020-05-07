@@ -7,12 +7,16 @@ pipeline {
     stages {
       stage ( 'construindo' ) {
           steps {
+              withMaven( 'maven3' ) {
               sh 'mvn clean package -DskipTest=true'
+              }
               }
           }
       stage( 'teste unitario') {
           steps{
-              sh 'mvn test'
+              withMaven( 'maven3' ) {
+              sh 'mvn test' 
+                    }
               }
           }
     }
