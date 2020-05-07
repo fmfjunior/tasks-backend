@@ -25,7 +25,8 @@ pipeline {
                 }
                 steps{
                     withSonarQubeEnv('sonarclient'){
-                      sh 'mvn clean package sonar:sonar'                    }
+                      sh 'sonar_scanner'               
+                    }
              }
         }
     }
