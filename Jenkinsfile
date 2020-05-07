@@ -23,7 +23,7 @@ pipeline {
                     scannerHome = tool 'sonar_scanner'
                 }
                 steps{
-                    withSonarQubeEnv('sonarclient'){
+                    withSonarQubeEnv('sonar_server'){
                    
                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=devops -Dsonar.host.url=http://localhost:9000 -Dsonar.login=jenkins -Dsonar.java.binaries=**/target/** -Dsonar.coverage.exclusions=**/mvm**,**/src/test/**,**/model/**" 
                     }
